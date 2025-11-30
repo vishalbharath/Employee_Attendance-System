@@ -1,172 +1,144 @@
-Employee Attendance System
+## 🚀 Employee Attendance Tracking System
 
-A full-stack Employee Attendance Tracking System with role-based access for Employees and Managers, built using:
+A **full-stack** Employee Attendance Tracking System designed with **role-based access** for Employees and Managers.
 
-React + Redux Toolkit
+This project showcases a modern MERN-stack application, focusing on robust authentication, state management, and clear data visualization.
 
-Node.js + Express
 
-MongoDB Atlas
 
-JWT Authentication
+---
 
-Render (Backend deploy)
+### 💻 Tech Stack
 
-Netlify (Frontend deploy)
+| Category | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend** | **React** + **Redux Toolkit** | UI development and predictable state management. |
+| | **Axios** | HTTP client for API requests. |
+| | **Recharts** | For clear, data-driven charts and visualizations. |
+| | **React Calendar** | Full calendar views for attendance history. |
+| | **Vite** | Fast frontend tooling and bundling. |
+| **Backend** | **Node.js** + **Express** | Server-side runtime and flexible web framework. |
+| | **MongoDB Atlas** | Cloud-hosted NoSQL database for flexible data storage. |
+| | **JWT** Authentication | Secure, stateless authentication with JSON Web Tokens. |
+| | **Bcrypt** | Strong password hashing for security. |
+| **Deployment** | Backend: **Render** | Continuous deployment for the Node/Express API. |
+| | Frontend: **Netlify** | Hosting for the React application. |
 
-🌐 Live Demo
-🔹 Frontend (Netlify)
+---
 
-➡️ https://employee-attendance-system-project.netlify.app/
+### 🌐 Live Demo
 
-🔹 Backend API (Render)
+Experience the system in action!
 
-➡️ https://employee-attendance-system-rz8p.onrender.com/api
+| Component | Link |
+| :--- | :--- |
+| **🔹 Frontend (Netlify)** | ➡️ `https://employee-attendance-system-project.netlify.app/` |
+| **🔹 Backend API (Render)** | ➡️ `https://employee-attendance-system-rz8p.onrender.com/api` |
 
-(Replace with your actual Netlify site link)
+*(Note: Replace with your actual Netlify site link in the documentation.)*
 
-🚀 Features
-🧑‍💼 Employee Features
+---
 
-Register / Login
+### ✨ Key Features
 
-Mark Attendance (Check In / Check Out)
+This system offers distinct functionalities tailored for each user role:
 
-View Monthly Summary (Present / Absent / Late / Half-day)
+#### 🧑‍💼 Employee Features
 
-Full Calendar View with color coding
+* **Secure Access:** Register / Login using **JWT Authentication**.
+* **Attendance Tracking:** Effortlessly **Mark Attendance** (**Check In / Check Out**).
+* **Personal Overview:** View **Monthly Summary** (Present / Absent / Late / Half-day counts).
+* **Visual History:** **Full Calendar View** with intuitive **color coding**.
+* **Real-time Status:** Daily status indicator (checked-in or not).
+* **Detailed History:** View comprehensive attendance history.
+* **Dashboard:** Personalized stats & charts powered by **Recharts**.
 
-Daily status (checked-in or not)
+#### 👨‍💼 Manager Features
 
-View attendance history
+* **Secure Access:** Login with Manager role.
+* **Team Visibility:** View **All Employees' Attendance**.
+* **Powerful Filtering:** Filter data by employee, date range, and status.
+* **Team Analytics:** Get **Team Summary** analytics.
+* **Visualization:** **Team Calendar** using a **heatmap** view.
+* **Reporting:** **Export attendance reports as CSV**.
+* **Management Dashboard:** Comprehensive dashboard with charts for:
+    * Weekly trend analysis.
+    * Department-wise attendance breakdown.
+    * List of absent / late employees for today.
 
-Dashboard with stats & charts
+---
 
-👨‍💼 Manager Features
+### 🗂️ Project Structure
 
-Login
+A clean, modular structure separates the frontend and backend for better maintainability.
 
-View All Employees' Attendance
+Employee_Attendance_System/ │ ├── backend/ │   ├── controllers/ # Business logic │   ├── models/ # MongoDB schemas │   ├── middleware/ # Auth/Error handlers │   ├── routes/ # API endpoints │   ├── utils/ # Utility functions │   ├── server.js # Entry point │   └── package.json │ ├── frontend/ │   ├── public/ │   │   └── _redirects # Netlify SPA routing config │   ├── src/ │   │   ├── api/ # Axios setup and service functions │   │   ├── components/ # Reusable UI components │   │   ├── pages/ # Route-level components │   │   ├── store/ # Redux Toolkit setup (slices, store) │   │   ├── styles/ # Global styles │   │   └── App.jsx │   └── package.json │ └── README.md
 
-Filter by employee, date range, status
 
-Team summary analytics
+---
 
-Team calendar (heatmap)
+### 📡 API Endpoints
 
-Export attendance reports as CSV
+The following endpoints are secured and accessed via **JWT Authentication**:
 
-Dashboard with charts (Recharts)
+| Category | Method | Endpoint | Description |
+| :--- | :--- | :--- | :--- |
+| **Auth** | POST | `/api/auth/register` | Register user |
+| | POST | `/api/auth/login` | Login user |
+| | GET | `/api/auth/me` | Get authenticated user info |
+| **Employee** | POST | `/api/attendance/checkin` | Mark daily check-in |
+| | POST | `/api/attendance/checkout` | Mark daily check-out |
+| | GET | `/api/attendance/my-history` | Full attendance history |
+| | GET | `/api/attendance/my-summary` | Monthly status summary |
+| | GET | `/api/attendance/today` | Today’s check-in status |
+| **Manager** | GET | `/api/attendance/all` | All employees' attendance records |
+| | GET | `/api/attendance/employee/:id` | Single employee's attendance |
+| | GET | `/api/attendance/summary` | Team attendance statistics |
+| | GET | `/api/attendance/export` | Export all data as CSV file |
+| | GET | `/api/attendance/today-status` | Absent/Late list for today |
+| **Dashboards** | GET | `/api/dashboard/employee` | Data for employee dashboard |
+| | GET | `/api/dashboard/manager` | Data for manager dashboard |
 
-Weekly trend
+---
 
-Department-wise attendance
+### 🔐 Environment Variables
 
-List of absent / late employees for today
+You must set up your environment variables for both the backend and frontend to run the application locally.
 
-🗂️ Folder Structure
-Employee_Attendance_System/
-│
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── middleware/
-│   ├── routes/
-│   ├── utils/
-│   ├── server.js
-│   └── package.json
-│
-├── frontend/
-│   ├── public/
-│   │   └── _redirects
-│   ├── src/
-│   │   ├── api/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── store/
-│   │   ├── styles/
-│   │   └── App.jsx
-│   └── package.json
-│
-└── README.md
+#### Backend (`backend/.env`)
 
-🛠️ Tech Stack
-Frontend
-
-React
-
-Redux Toolkit
-
-Axios
-
-Recharts
-
-React Calendar
-
-Vite
-
-Backend
-
-Node.js
-
-Express
-
-MongoDB Atlas
-
-JWT Authentication
-
-Bcrypt Password Hashing
-
-Deployment
-
-Backend → Render
-
-Frontend → Netlify
-
-🔐 Environment Variables
-Backend (backend/.env)
+```env
 MONGO_URI=your_mongo_atlas_connection_string
-JWT_SECRET=your_secret_key
+JWT_SECRET=your_secret_key_for_jwt_signing
 PORT=10000
-
 Frontend (frontend/.env)
-VITE_API_URL=https://employee-attendance-system-rz8p.onrender.com/api
+Code snippet
 
-📡 API Endpoints
-🔹 Auth
-Method	Endpoint	Description
-POST	/api/auth/register	Register user
-POST	/api/auth/login	Login user
-GET	/api/auth/me	Get user info
-🔹 Employee Attendance
-Method	Endpoint	Description
-POST	/api/attendance/checkin	Check-in
-POST	/api/attendance/checkout	Check-out
-GET	/api/attendance/my-history	Attendance history
-GET	/api/attendance/my-summary	Monthly summary
-GET	/api/attendance/today	Today’s attendance status
-🔹 Manager Attendance
-Method	Endpoint	Description
-GET	/api/attendance/all	All employees
-GET	/api/attendance/employee/:id	Single employee
-GET	/api/attendance/summary	Team stats
-GET	/api/attendance/export	Export CSV
-GET	/api/attendance/today-status	Today’s presence
-🔹 Dashboards
-Method	Endpoint	Description
-GET	/api/dashboard/employee	Employee dashboard
-GET	/api/dashboard/manager	Manager dashboard
-🟩 Installation & Setup
+VITE_API_URL=[https://employee-attendance-system-rz8p.onrender.com/api](https://employee-attendance-system-rz8p.onrender.com/api) 
+# Use http://localhost:10000/api for local development 
+🛠️ Installation & Setup
+Follow these steps to get a local copy up and running.
+
 1️⃣ Clone the repository
-git clone https://github.com/your-username/Employee_Attendance-System.git
-cd Employee_Attendance-System
+Bash
 
-2️⃣ Install backend dependencies
+git clone [https://github.com/your-username/Employee_Attendance-System.git](https://github.com/your-username/Employee_Attendance-System.git)
+cd Employee_Attendance-System
+2️⃣ Install and Run Backend
+Ensure your backend/.env file is configured.
+
+Bash
+
 cd backend
 npm install
 npm run dev
+# The API will start on http://localhost:10000
+3️⃣ Install and Run Frontend
+Ensure your frontend/.env file is configured to point to your backend API.
 
-3️⃣ Install frontend dependencies
+Bash
+
 cd ../frontend
 npm install
 npm run dev
+# The frontend will start on http://localhost:5173 (or similar)
