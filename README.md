@@ -1,9 +1,23 @@
+# 🌟 **PROJECT AUTHOR & CONTACT INFORMATION** 🌟
+
+## **<center>NAME: VISHAL BHARATH R</center>**
+## **<center>ROLL NO: 22ALR110</center>**
+## **<center>DEPARTMENT: AIML</center>**
+## **<center>COLLEGE: KONGU ENGINEERING COLLEGE</center>**
+
+| Contact Detail | Information |
+| :--- | :--- |
+| **Contact Number** | 8072865461 |
+| **Personal Email ID** | vishalbharathonly@gmail.com |
+| **College Email ID** | vishalbharathr.22aim@kongu.edu |
+
+---
+
 ## 🚀 Employee Attendance Tracking System
 
 A **full-stack** Employee Attendance Tracking System designed with **role-based access** for Employees and Managers.
 
 This project showcases a modern MERN-stack application, focusing on robust authentication, state management, and clear data visualization.
-
 
 
 ---
