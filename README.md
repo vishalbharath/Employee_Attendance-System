@@ -67,6 +67,10 @@ This system offers distinct functionalities tailored for each user role:
 * **Detailed History:** View comprehensive attendance history.
 * **Dashboard:** Personalized stats & charts powered by **Recharts**.
 
+<img width="2879" height="909" alt="image" src="https://github.com/user-attachments/assets/4e0678de-1043-44a7-baf4-4be1c6c8821e" />
+
+<img width="2879" height="1529" alt="image" src="https://github.com/user-attachments/assets/f3cc5e4f-8f84-4bed-967a-55496453f973" />
+
 #### 👨‍💼 Manager Features
 
 * **Secure Access:** Login with Manager role.
@@ -79,6 +83,11 @@ This system offers distinct functionalities tailored for each user role:
     * Weekly trend analysis.
     * Department-wise attendance breakdown.
     * List of absent / late employees for today.
+    
+
+<img width="2854" height="1606" alt="image" src="https://github.com/user-attachments/assets/179aaf96-a518-4eb8-beca-906cf69c8784" />
+
+<img width="2879" height="806" alt="image" src="https://github.com/user-attachments/assets/8373650a-a86b-45d7-b824-bbff03ebfc3b" />
 
 ---
 
