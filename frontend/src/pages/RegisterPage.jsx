@@ -18,17 +18,19 @@ const RegisterPage = () => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const res = await dispatch(register(form));
-    if (res.meta.requestStatus === "fulfilled") {
-      if (res.payload.role === "employee") {
-        navigate("/employee/dashboard");
-      } else {
-        navigate("/manager/dashboard");
-      }
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  dispatch(
+    register({
+      name: form.name,
+      email: form.email,
+      password: form.password,
+      role: form.role,          // "employee" or "manager"
+      department: form.department,
+    })
+  );
+};
+
 
   return (
     <div className="card">
@@ -59,10 +61,15 @@ const RegisterPage = () => {
           value={form.department}
           onChange={handleChange}
         />
-        <select name="role" value={form.role} onChange={handleChange}>
-          <option value="employee">Employee</option>
-          <option value="manager">Manager</option>
-        </select>
+        <select
+  name="role"
+  value={form.role}
+  onChange={handleChange}
+>
+  <option value="employee">Employee</option>
+  <option value="manager">Manager</option>
+</select>
+
         <button type="submit" disabled={loading}>
           Register
         </button>
