@@ -35,6 +35,4 @@ frontend/node_modules/
 backend/.env
 frontend/.env
 
-# Build outputs
-frontend/dist/
-backend/build/
+
