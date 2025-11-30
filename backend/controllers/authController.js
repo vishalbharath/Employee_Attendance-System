@@ -1,6 +1,4 @@
 const User = require("../models/User");
-
-
 const generateToken = require("../utils/generateToken");
 
 const register = async (req, res) => {
@@ -19,18 +17,28 @@ const register = async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // Role-based ID prefix
+    // Decide prefix based on role
     const prefix = role === "manager" ? "MGR" : "EMP";
 
-    // Count existing users of this role for ID sequence
-    const countForRole = await User.countDocuments({ role });
+    // Find the current highest employeeId for this role and prefix
+    const lastUser = await User.findOne({
+      role,
+      employeeId: { $regex: `^${prefix}\\d+$` },
+    })
+      .sort({ employeeId: -1 })
+      .lean();
 
-    const employeeId = `${prefix}${String(countForRole + 1).padStart(
-      3,
-      "0"
-    )}`;
+    let nextNumber = 1;
+    if (lastUser && lastUser.employeeId) {
+      const num = parseInt(lastUser.employeeId.replace(prefix, ""), 10);
+      if (!Number.isNaN(num)) {
+        nextNumber = num + 1;
+      }
+    }
 
-        const user = await User.create({
+    const employeeId = `${prefix}${String(nextNumber).padStart(3, "0")}`;
+
+    const user = await User.create({
       name,
       email,
       password,
@@ -39,7 +47,7 @@ const register = async (req, res) => {
       department,
     });
 
-      return res.status(201).json({
+    return res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
@@ -55,37 +63,5 @@ const register = async (req, res) => {
       .json({ message: "Server error", error: err.message });
   }
 };
-const login = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
 
-    if (user && (await user.matchPassword(password))) {
-      return res.json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        employeeId: user.employeeId,
-        department: user.department,
-        token: generateToken(user._id),
-      });
-    }
-
-    return res.status(401).json({ message: "Invalid email or password" });
-  } catch (err) {
-    return res.status(500).json({ message: "Server error" });
-  }
-};
-
-const getMe = async (req, res) => {
-  const user = req.user;
-  return res.json(user);
-};
-
-module.exports = {
-  register,
-  login,
-  getMe,
-};
-
+module.exports = { register, login, getMe };
