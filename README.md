@@ -49,7 +49,6 @@ Experience the system in action!
 | **🔹 Frontend (Netlify)** | ➡️ `https://employee-attendance-system-project.netlify.app/` |
 | **🔹 Backend API (Render)** | ➡️ `https://employee-attendance-system-rz8p.onrender.com/api` |
 
-*(Note: Replace with your actual Netlify site link in the documentation.)*
 
 ---
 
@@ -139,29 +138,34 @@ Code snippet
 
 VITE_API_URL=[https://employee-attendance-system-rz8p.onrender.com/api](https://employee-attendance-system-rz8p.onrender.com/api) 
 # Use http://localhost:10000/api for local development 
+
+```
 🛠️ Installation & Setup
 Follow these steps to get a local copy up and running.
 
 1️⃣ Clone the repository
 Bash
-
-git clone [https://github.com/your-username/Employee_Attendance-System.git](https://github.com/your-username/Employee_Attendance-System.git)
+```
+git clone [https://github.com/vishalbharath/Employee_Attendance-System.git](https://github.com/vishalbharath/Employee_Attendance-System.git)
 cd Employee_Attendance-System
+```
+
 2️⃣ Install and Run Backend
 Ensure your backend/.env file is configured.
-
-Bash
-
+```
 cd backend
 npm install
 npm run dev
 # The API will start on http://localhost:10000
+
+```
+
 3️⃣ Install and Run Frontend
 Ensure your frontend/.env file is configured to point to your backend API.
 
-Bash
-
+```
 cd ../frontend
 npm install
 npm run dev
 # The frontend will start on http://localhost:5173 (or similar)
+```
